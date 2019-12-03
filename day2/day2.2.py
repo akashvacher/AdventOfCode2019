@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import sys
 
 
 def compute(a):
@@ -42,10 +43,6 @@ for noun in range(100):
             # the original list will get mutated
             if compute(a[:]) == 19690720:
                 print(100 * noun + verb)
-                done = True
+                sys.exit(0)
         except Exception:
             pass
-        if done:
-            break
-    if done:
-        break
