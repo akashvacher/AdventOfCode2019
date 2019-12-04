@@ -9,7 +9,6 @@ def possibilities(s='', l=6):
     # Base case
     if l == 0:
         if MIN <= int(s) <= MAX and any(i == 2 for i in Counter(s).values()):
-
             return 1
         return 0
 
