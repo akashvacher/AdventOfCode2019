@@ -14,7 +14,8 @@ def possibilities(s='', l=6):
         return 0
 
     last = 0 if len(s) == 0 else int(s[-1])
-    ans = sum(possibilities(s+str(digit), l-1) for digit in range(last, 10))
+    ans = sum(possibilities(s + str(digit), l - 1)
+              for digit in range(last, 10))
     return ans
 
 

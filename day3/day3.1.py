@@ -39,5 +39,5 @@ p1, p2 = open('in.txt').readlines()
 # Find all common points in these 2 trails
 x = trace(p1) & trace(p2)
 
-ans = min(abs(i)+abs(j) for i, j in x)
+ans = min(abs(i) + abs(j) for i, j in x)
 print(ans)
