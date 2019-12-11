@@ -2,10 +2,10 @@
 
 
 def compute(a):
-    '''
+    """
     Accept an intcode program as a list of integers
     and return the final output of running the program
-    '''
+    """
     it = iter(a)
     while True:
         op = next(it)
@@ -28,7 +28,7 @@ def compute(a):
 
 
 def load_input():
-    return list(map(int, open('in.txt').read().split(',')))
+    return list(map(int, open("in.txt").read().split(",")))
 
 
 a = load_input()
