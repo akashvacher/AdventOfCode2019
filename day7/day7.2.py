@@ -66,11 +66,13 @@ class Computer:
                 logging.info(f"6 - Setting instruction Pointer to {self.ip}")
 
         if op == 7:
-            logging.info(f"7 - Checking if {params[0]} is less that {params[1]}")
+            logging.info(
+                f"7 - Checking if {params[0]} is less that {params[1]}")
             self.a[address] = 1 if (params[0] < params[1]) else 0
 
         if op == 8:
-            logging.info(f"8 - Checking if {params[0]} is equal to {params[1]}")
+            logging.info(
+                f"8 - Checking if {params[0]} is equal to {params[1]}")
             self.a[address] = 1 if (params[0] == params[1]) else 0
 
     def compute(self):
@@ -125,17 +127,17 @@ def load_input():
 
 def get_thrust(phases, a):
     amps = []
+    # Initialize Amplifiers
     for phase in phases:
         amps.append(Computer(a[:], inp=[phase]))
 
     signal, last_signal, over = 0, 0, 0
-    for i, phase in cycle(enumerate(phases)):
+    for amp in cycle(amps):
         if signal is not None:
-            amps[i].append_input(signal)
-        signal = next(amps[i].compute())
+            amp.append_input(signal)
+        signal = next(amp.compute())
         last_signal = signal if signal is not None else last_signal
-        if signal is None:
-            over += 1
+        over += 1 if signal is None else 0
         if over == 5:
             break
     return last_signal
