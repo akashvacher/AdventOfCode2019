@@ -10,7 +10,7 @@ op_to_param = {1: 3, 2: 3, 3: 1, 4: 1, 5: 2, 6: 2, 7: 3, 8: 3, 9: 1, 99: 0}
 class Computer:
     def __init__(self, a, inp):
         self.ip = 0
-        self.a = a
+        self.a = a + [0] * 1000
         self.inp = deque(inp)
         self.out = deque([])
         self.base = 0
@@ -135,5 +135,5 @@ def load_input():
 
 
 a = load_input()
-c = Computer(a + [0] * 1000, inp=[1])
+c = Computer(a, inp=[1])
 print(list(c.compute())[0])
